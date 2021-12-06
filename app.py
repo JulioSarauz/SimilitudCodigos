@@ -24,6 +24,13 @@ def prueba():
    jacard = procesos.compararJacard(nombres)
    return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido, coseno=coseno, jacard=jacard) 
 
+@app.route ('/eliminar', methods=['GET','POST']) 
+def eliminarArchivo():
+   nombre = request.args['nombre']
+   procesos.eliminarArchivo(nombre)
+   contenido = procesos.buscarArchivos()
+   return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido) 
+
 
 @app.route('/upload', methods=['POST'])
 def uploadFile():

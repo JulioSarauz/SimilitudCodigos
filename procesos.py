@@ -35,12 +35,6 @@ def get_jaccard_sim(str1, str2):
     c = a.intersection(b)
     return round(float(len(c)) / (len(a) + len(b) - len(c)),2)
 
-def generarArchivo(name,texto):  
-    file = open("data/"+str(name)+".txt", "w")   
-    file.write(texto)
-    file.close()
-
-
 def eliminarArchivo(nombre):
     remove('data/'+str(nombre))
     

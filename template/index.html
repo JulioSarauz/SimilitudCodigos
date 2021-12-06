@@ -238,7 +238,10 @@
               >
                 <ol>
                     {%for i in contenido%}
-                    <li><input name="checks[]" type="checkbox" value="{{i}}" />  {{i}}  </li>
+                    <li><input name="checks[]" type="checkbox" value="{{i}}" />  {{i}}
+                      <a class="btn btn-danger"  style=" color:white; width: 20px; height: 25px; padding: 0px 5px 1px 5px;" type="button"
+                      href="/eliminar?nombre={{i}}">x</a>
+                    </li>
                     {%endfor%}
                 </ol>
                   <div >Codigos a comparar:<span id="arr"></span></div>
