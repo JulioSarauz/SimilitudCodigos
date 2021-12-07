@@ -36,15 +36,18 @@ def get_jaccard_sim(str1, str2):
     return round(float(len(c)) / (len(a) + len(b) - len(c)),2)
 
 def eliminarArchivo(nombre):
-    remove('data/'+str(nombre))
+    dirname = os.path.dirname(__file__)
+    remove(dirname+'/data'+str(nombre))
     
 def buscarArchivos():
-    contenido = os.listdir('data')
+    dirname = os.path.dirname(__file__)
+    contenido = os.listdir(dirname+'/data')
     return contenido
 
 def leerArchivo(name):
     contenido = []
-    with open("data/"+str(name),"r") as archivo:
+    dirname = os.path.dirname(__file__)
+    with open(dirname+'/data'+str(name),"r") as archivo:
         for linea in archivo:
             contenido.append(linea)
     return contenido
