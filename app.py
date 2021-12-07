@@ -4,7 +4,8 @@ from werkzeug.utils import secure_filename
 import os
 
 app = Flask (__name__, template_folder='template') 
-app.config['UPLOAD_FOLDER'] = "data"
+dirname = os.path.dirname(__file__)
+app.config['UPLOAD_FOLDER'] = dirname+"/data/"
 nombre = "SIMILITUD DE CODIGOS"
 detalle = "Para los programadores que a menudo escriben código y cambian el código, si el código escrito antes necesita cambiarse después de mucho tiempo, es bastante difícil encontrar la diferencia."
 
