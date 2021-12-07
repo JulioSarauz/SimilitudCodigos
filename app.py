@@ -35,10 +35,10 @@ def eliminarArchivo():
 @app.route('/upload', methods=['POST'])
 def uploadFile():
     if request.method == "POST":
-        contenido = procesos.buscarArchivos()
         f = request.files['archivoRecibido']
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
+        contenido = procesos.buscarArchivos()
         return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido) 
 
 if __name__=="__main__":

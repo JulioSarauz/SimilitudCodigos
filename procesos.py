@@ -37,7 +37,7 @@ def get_jaccard_sim(str1, str2):
 
 def eliminarArchivo(nombre):
     dirname = os.path.dirname(__file__)
-    remove(dirname+'/data'+str(nombre))
+    remove(dirname+'/data/'+str(nombre))
     
 def buscarArchivos():
     dirname = os.path.dirname(__file__)
