@@ -17,13 +17,24 @@ def home ():
    contenido = procesos.buscarArchivos()
    return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido) 
 
+
+@app.route ('/cargar', methods=['GET','POST']) 
+def cargar (): 
+   nombres = request.args['name']
+   texto = procesos.leerArchivo(nombres)
+   contenido = procesos.buscarArchivos()
+   return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido,texto=texto) 
+
 @app.route ('/prueba', methods=['GET','POST']) 
 def prueba(): 
    contenido = procesos.buscarArchivos()
    nombres = request.args['nombres']
-   coseno = procesos.comparar(nombres)
-   jacard = procesos.compararJacard(nombres)
-   return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido, coseno=coseno, jacard=jacard) 
+   if nombres == 'undefined':
+       return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido)
+   else:
+       coseno = procesos.comparar(nombres)
+       jacard = procesos.compararJacard(nombres)
+       return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido, coseno=coseno, jacard=jacard) 
 
 @app.route ('/eliminar', methods=['GET','POST']) 
 def eliminarArchivo():
