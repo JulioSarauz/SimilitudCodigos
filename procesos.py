@@ -47,7 +47,7 @@ def buscarArchivos():
 def leerArchivo(name):
     contenido = []
     dirname = os.path.dirname(__file__)
-    with open(dirname+'/data'+str(name),"r") as archivo:
+    with open(dirname+'/data/'+str(name),"r") as archivo:
         for linea in archivo:
             contenido.append(linea)
     return contenido
