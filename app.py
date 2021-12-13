@@ -13,7 +13,7 @@ detalle = "Para los programadores que a menudo escriben código y cambian el có
 
 #INICIO DE LA PAGINA WEB
 @app.route ('/', methods=['GET','POST']) 
-def home (): 
+def home ():  
    contenido = procesos.buscarArchivos()
    return render_template ('index.html',nombre=nombre, detalle=detalle,contenido=contenido) 
 
